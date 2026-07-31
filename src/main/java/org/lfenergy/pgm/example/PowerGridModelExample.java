@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: Contributors to the Power Grid Model project <powergridmodel@lfenergy.org>
 // SPDX-License-Identifier: MPL-2.0
 
-package com.alliander.ads.dgsa.pgm;
+package org.lfenergy.pgm.example;
 
 import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
