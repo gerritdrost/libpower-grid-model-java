@@ -56,6 +56,7 @@ public class PGMLoaderTest {
 
     @BeforeAll
     static void beforeAll() {
+
         final InputStream ris = PGMLoader.class.getResourceAsStream("/version");
 
         try (InputStream is = new BufferedInputStream(ris)) {
@@ -68,7 +69,9 @@ public class PGMLoaderTest {
 
     @MethodSource("testAutoloadProvider")
     @ParameterizedTest
-    void testAutoload(Platform platform, String expectedResourceFile) {
+    void testAutoload(Platform platform,
+        String expectedResourceFile) {
+
         // Stub the static method
         when(pgmInvoker.PGM_version())
             .thenReturn(pgmBuildVersionPointer);
@@ -90,29 +93,15 @@ public class PGMLoaderTest {
 
         return Stream.of(
             argumentSet(
-                "MACOS, ARM64",
-                new Platform(MACOS, ARM64),
-                "power_grid_model_c_arm64_macosx.dylib"
-            ),
-            argumentSet(
-                "MACOS, X86_64",
-                new Platform(MACOS, X86_64),
-                "power_grid_model_c_x86_64_macosx.dylib"
-            ),
-            argumentSet(
-                "LINUX, ARM64",
-                new Platform(LINUX, ARM64),
-                "power_grid_model_c_arm64_linux.so"
-            ),
-            argumentSet(
-                "LINUX, X86_64",
-                new Platform(LINUX, X86_64),
-                "power_grid_model_c_x86_64_linux.so"
-            ),
-            argumentSet(
-                "WINDOWS, X86_64",
-                new Platform(WINDOWS, X86_64),
-                "power_grid_model_c_x86_64_windows.dll"
+                "MACOS, ARM64", new Platform(MACOS, ARM64), "power_grid_model_c_arm64_macosx.dylib"
+            ), argumentSet(
+                "MACOS, X86_64", new Platform(MACOS, X86_64), "power_grid_model_c_x86_64_macosx.dylib"
+            ), argumentSet(
+                "LINUX, ARM64", new Platform(LINUX, ARM64), "power_grid_model_c_arm64_linux.so"
+            ), argumentSet(
+                "LINUX, X86_64", new Platform(LINUX, X86_64), "power_grid_model_c_x86_64_linux.so"
+            ), argumentSet(
+                "WINDOWS, X86_64", new Platform(WINDOWS, X86_64), "power_grid_model_c_x86_64_windows.dll"
             )
         );
     }
@@ -148,6 +137,7 @@ public class PGMLoaderTest {
     }
 
     private static MemorySegment createNullTerminatedString(String string) {
+
         ByteBuffer buffer = UTF_8.encode(string);
         byte[] bytes = new byte[buffer.remaining() + 1];
         buffer.get(bytes, 0, buffer.remaining());

@@ -11,10 +11,13 @@ public class PGMLoaderException extends RuntimeException {
     private static final long serialVersionUID = -4755108178968242882L;
 
     PGMLoaderException(String message) {
+
         super(message);
     }
 
-    PGMLoaderException(String message, Throwable cause) {
+    PGMLoaderException(String message,
+        Throwable cause) {
+
         super(message, cause);
     }
 }
