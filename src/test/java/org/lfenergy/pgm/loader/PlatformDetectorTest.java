@@ -28,7 +28,9 @@ class PlatformDetectorTest {
 
     @MethodSource("testProvider")
     @ParameterizedTest
-    void test(String osName, String osArch, Platform expectedPlatform) {
+    void test(String osName,
+        String osArch,
+        Platform expectedPlatform) {
 
         when(systemPropertyProvider.getOsName()).thenReturn(osName);
         when(systemPropertyProvider.getOsArch()).thenReturn(osArch);
@@ -46,36 +48,28 @@ class PlatformDetectorTest {
             // OS: Mac OS X Tahoe 26.5.2
             // Expected platform: MACOS, ARM64
             Arguments.argumentSet(
-                "MACOS, ARM64",
-                "Mac OS X", "aarch64",
-                new Platform(MACOS, ARM64)
+                "MACOS, ARM64", "Mac OS X", "aarch64", new Platform(MACOS, ARM64)
             ),
             //
             // CPU: AMD Ryzen 7 6800U (x86-64)
             // OS: Arch Linux
             // Expected platform: LINUX, X86_64
             Arguments.argumentSet(
-                "LINUX, X86_64",
-                "Linux", "amd64",
-                new Platform(LINUX, X86_64)
+                "LINUX, X86_64", "Linux", "amd64", new Platform(LINUX, X86_64)
             ),
             //
             // CPU: Rockchip RK3399 (ARMv8-A)
             // OS: Manjaro ARM
             // Expected platform: LINUX, ARM64
             Arguments.argumentSet(
-                "LINUX, ARM64",
-                "Linux", "aarch64",
-                new Platform(LINUX, ARM64)
+                "LINUX, ARM64", "Linux", "aarch64", new Platform(LINUX, ARM64)
             ),
             //
             // CPU: Intel Core i7 ...
             // OS: Windows 11
             // Expected platform: Windows, X86_64
             Arguments.argumentSet(
-                "WINDOWS, X86_64",
-                "Windows 11", "amd64",
-                new Platform(WINDOWS, X86_64)
+                "WINDOWS, X86_64", "Windows 11", "amd64", new Platform(WINDOWS, X86_64)
             )
         );
     }

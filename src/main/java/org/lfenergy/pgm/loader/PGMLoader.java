@@ -27,10 +27,14 @@ public class PGMLoader {
     private final AtomicBoolean loaded = new AtomicBoolean(false);
 
     public PGMLoader() {
+
         this(new PlatformDetector(), new ResourceLibraryLoader(), PowerGridModelC::PGM_version);
     }
 
-    PGMLoader(PlatformDetector platformDetector, ResourceLibraryLoader resourceLibraryLoader, PGMInvoker pgmInvoker) {
+    PGMLoader(PlatformDetector platformDetector,
+        ResourceLibraryLoader resourceLibraryLoader,
+        PGMInvoker pgmInvoker) {
+
         this.platformDetector = platformDetector;
         this.resourceLibraryLoader = resourceLibraryLoader;
         this.pgmInvoker = pgmInvoker;
@@ -76,6 +80,7 @@ public class PGMLoader {
      * @throws VersionMismatchException thrown when {@code matchVersion} is true and the build and runtime versions don't match
      */
     public void check(boolean matchVersion) {
+
         final String buildVersion = getPGMBuildVersion();
         final String runtimeVersion = getPGMRuntimeVersion();
 
@@ -148,6 +153,7 @@ public class PGMLoader {
     @SuppressWarnings({"checkstyle:MethodName", "PMD.MethodNamingConventions"})
     @FunctionalInterface
     interface PGMInvoker {
+
         MemorySegment PGM_version();
     }
 }
