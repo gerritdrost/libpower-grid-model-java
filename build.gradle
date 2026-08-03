@@ -51,7 +51,8 @@ tasks.named("pmdMain", Pmd) {
 spotless{
     java {
         targetExclude("build/**")
-        eclipse().configFile('config/code_style.xml')
+        toggleOffOn()
+        eclipse().configFile('config/spotless/code_style.xml')
 
         licenseHeader """// SPDX-FileCopyrightText: Contributors to the Power Grid Model project <powergridmodel@lfenergy.org>
 // SPDX-License-Identifier: MPL-2.0

@@ -89,22 +89,34 @@ public class PGMLoaderTest {
         assertEquals(expectedResourceFile, resourceLibraryLoaderCaptor.getValue());
     }
 
+    // spotless:off
     static Stream<Arguments> testAutoloadProvider() {
 
         return Stream.of(
             argumentSet(
-                "MACOS, ARM64", new Platform(MACOS, ARM64), "power_grid_model_c_arm64_macosx.dylib"
+                "MACOS, ARM64",
+                new Platform(MACOS, ARM64),
+                "power_grid_model_c_arm64_macosx.dylib"
             ), argumentSet(
-                "MACOS, X86_64", new Platform(MACOS, X86_64), "power_grid_model_c_x86_64_macosx.dylib"
+                "MACOS, X86_64",
+                new Platform(MACOS, X86_64),
+                "power_grid_model_c_x86_64_macosx.dylib"
             ), argumentSet(
-                "LINUX, ARM64", new Platform(LINUX, ARM64), "power_grid_model_c_arm64_linux.so"
+                "LINUX, ARM64",
+                new Platform(LINUX, ARM64),
+                "power_grid_model_c_arm64_linux.so"
             ), argumentSet(
-                "LINUX, X86_64", new Platform(LINUX, X86_64), "power_grid_model_c_x86_64_linux.so"
+                "LINUX, X86_64",
+                new Platform(LINUX, X86_64),
+                "power_grid_model_c_x86_64_linux.so"
             ), argumentSet(
-                "WINDOWS, X86_64", new Platform(WINDOWS, X86_64), "power_grid_model_c_x86_64_windows.dll"
+                "WINDOWS, X86_64",
+                new Platform(WINDOWS, X86_64),
+                "power_grid_model_c_x86_64_windows.dll"
             )
         );
     }
+    // spotless:on
 
     @Test
     void testCheckThrowsVersionMismatchExceptionWhenCheckingVersionAndVersionsNotEqual() {

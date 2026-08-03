@@ -103,13 +103,16 @@ public class ResourceLibraryLoaderTest {
         assertEquals(expectedPathString, systemLoadCaptor.getValue());
     }
 
+    // spotless:off
     static Stream<Arguments> testProvider() {
 
         return Stream.of(
-            Arguments.argumentSet("LINUX, ARM64", "/power_grid_model_c_arm64_linux.so"), Arguments.argumentSet("LINUX, X86_64", "/power_grid_model_c_x86_64_linux.so"), Arguments
-                .argumentSet("MACOS, ARM64", "/power_grid_model_c_arm64_macosx.dylib"), Arguments.argumentSet("MACOS, X86_64", "/power_grid_model_c_x86_64_macosx.dylib"), Arguments
-                    .argumentSet("WINDOWS, X86_64", "/power_grid_model_c_x86_64_windows.dll")
+            Arguments.argumentSet("LINUX, ARM64", "/power_grid_model_c_arm64_linux.so"),
+            Arguments.argumentSet("LINUX, X86_64", "/power_grid_model_c_x86_64_linux.so"),
+            Arguments.argumentSet("MACOS, ARM64", "/power_grid_model_c_arm64_macosx.dylib"),
+            Arguments.argumentSet("MACOS, X86_64", "/power_grid_model_c_x86_64_macosx.dylib"),
+            Arguments.argumentSet("WINDOWS, X86_64", "/power_grid_model_c_x86_64_windows.dll")
         );
     }
-
+    // spotless:on
 }
