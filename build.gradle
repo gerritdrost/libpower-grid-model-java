@@ -262,6 +262,9 @@ tasks.register("generatePGMBindings") {
             headersDir.file("power_grid_model_c/dataset_definitions.h")
     )
     outputs.dir(generatedJavaDir)
+    def jextractExecutables = fileTree(jextractDir) {
+        include "**/bin/*"
+    }
     doLast {
         def jextractBin
         if (localJextractBin) {
@@ -270,9 +273,9 @@ tasks.register("generatePGMBindings") {
             def executableName = osName.contains("windows")
                     ? "jextract.exe"
                     : "jextract"
-            def jextractBins = fileTree(jextractDir) {
-                include "**/bin/$executableName"
-            }.files
+            def jextractBins = jextractExecutables.files.findAll() {
+                it.name == executableName
+            }
             if (jextractBins.size() != 1) {
                 throw new GradleException(
                         "Expected exactly one Jextract executable, " +
