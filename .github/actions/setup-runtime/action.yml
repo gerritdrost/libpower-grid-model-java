@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name: Java & Gradle Setup
-author: wei-qiang.zhou
 description: Setup runtime
 
 inputs:

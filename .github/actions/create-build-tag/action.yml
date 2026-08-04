@@ -3,8 +3,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name: create-build-tag
-author: wei-qiang.zhou
-description: create-build-tag
+
 outputs:
   build_tag:
     description: 'The generated build tag'
